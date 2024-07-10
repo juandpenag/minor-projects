@@ -1,0 +1,1 @@
+This is my first ever Python code. Made in january, 2023.
