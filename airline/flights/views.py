@@ -7,19 +7,21 @@ from django.urls import reverse
 
 def index(request):
     return render(request, "flights/index.html", {
-        "flights": Flight.object.all()
+        "flights": Flight.objects.all()
     })
 
 def flight(request, flight_id):
-	flight = Flight.object.get(pk=flight_id)
-	return render(request, "flights/flight.html", {
-          "flight": flight, 
-          "passengers": flight.passengers.all(),
-          "non_passenger": Passenger.objects.exclude(flights=flight).all()})
-
+    flight = Flight.objects.get(pk=flight_id)
+    
+    return render(request, 'flights/flight.html', {
+        'flight': flight,
+        'passengers': flight.passengers.all(),
+        'non_passengers': Passenger.objects.exclude(flights=flight).all()
+    })
+    
 def book(request, flight_id):
     if request.method == "POST":
-        flight = Flight.object.get(pk=flight_id)
+        flight = Flight.objects.get(pk=flight_id)
         passenger = Passenger.objects.get(int(request.POST["passenger"]))
         passenger.flights.add(flight)
         return HttpResponseRedirect(reverse("flight", args=(flight.id)))
