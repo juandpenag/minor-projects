@@ -17,13 +17,15 @@
         </ul>
         <h2>Add Passenger</h2>
         <form action="{% url 'book' flight.id %}" method="post">
-	        {% csrf_token %}
+            {% csrf_token %}
             <select name="passenger">
                 {% for passenger in non_passengers %}
-                    <option value="{{ passenger.id }}></option>
+                    <option value="{{ passenger.id }}">{{ passenger.name }}</option>
                 {% endfor %}
             </select>
             <input type="submit">
-        <a href="{% url 'index' %}>"Back to Flight list</a></a>
+            <a href="{% url 'index' %}">Back to Flight list</a>
+        </form>
+        
     </body>
 </html>
