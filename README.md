@@ -1,4 +1,4 @@
-Those are my minor projects.
+These are my minor projects.
 
 1. Rock, paper n' scissors game with Python.
 2. Library management software through command-line, also with Python.
