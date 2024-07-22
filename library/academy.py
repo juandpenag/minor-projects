@@ -153,9 +153,6 @@ def search():
             if re.search(rf".*{re.escape(value)}.*", cell_value, re.IGNORECASE): 
                 matches.append(row.to_dict()) # Append the match into matches if a match is found comparing cell_value with value
 
-            # if re.search(r"(.)?+value+(.)?", cell_value, re.IGNORECASE):
-                # 
-
         if matches: # If matches were found
             print("Matches found: ")
             for index, match in enumerate(matches):
